@@ -18,11 +18,9 @@ from django.db.models.query import QuerySet
 from django.urls import path
 from django.urls.conf import include
 from rest_framework import routers, viewsets
-from rest_framework.authtoken.models import Token
-from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-
+"""
 class GetTokenViewSet(viewsets.ViewSet):
     queryset = Token.objects.all()
 
@@ -36,9 +34,9 @@ class GetTokenViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
 router = routers.DefaultRouter()
-router.register(r'user-token', GetTokenViewSet, basename='tokens')
+router.register(r'user-token', GetTokenViewSet, basename='tokens')"""
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include("api.urls")),
     path('admin/', admin.site.urls),
 ]
